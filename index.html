@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Susmi Nails and Beauty Studio | Sukedhara, Lalitpur, Nepal</title>
+  <meta name="description" content="Susmi Nails and Beauty Studio — premium nail extensions, lash extensions, facials, keratin treatment and more in Sukedhara, Harisiddhi, Lalitpur, Nepal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ======================== NAVBAR ======================== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <span class="navbar__logo-name">Susmi</span>
+        <span class="navbar__logo-sub">Nails &amp; Beauty Studio</span>
+      </a>
+      <ul class="navbar__nav">
+        <li><a href="index.html"    class="navbar__link active">Home</a></li>
+        <li><a href="services.html" class="navbar__link">Services</a></li>
+        <li><a href="gallery.html"  class="navbar__link">Gallery</a></li>
+        <li><a href="about.html"    class="navbar__link">About</a></li>
+        <li><a href="contact.html"  class="navbar__link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="btn btn--gold btn--sm">
+          <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+      <button class="navbar__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="navbar__drawer" id="navDrawer">
+  <button class="navbar__drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+  <a href="index.html"    class="navbar__link active">Home</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="gallery.html"  class="navbar__link">Gallery</a>
+  <a href="about.html"    class="navbar__link">About</a>
+  <a href="contact.html"  class="navbar__link">Contact</a>
+  <a href="https://wa.me/9779810277266" target="_blank" rel="noopener"
+     class="btn btn--whatsapp btn--lg navbar__drawer-cta">
+    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+  </a>
+</div>
+<div class="navbar__overlay" id="navOverlay"></div>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero" id="home">
+
+  <!-- Background orbs -->
+  <div class="hero__orb hero__orb--1"></div>
+  <div class="hero__orb hero__orb--2"></div>
+  <div class="hero__orb hero__orb--3"></div>
+
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- Content -->
+      <div class="hero__content">
+        <div class="hero__eyebrow fade-in">
+          <i class="fas fa-star"></i>
+          Premium Beauty Studio &nbsp;·&nbsp; Lalitpur, Nepal
+        </div>
+
+        <span class="hero__welcome fade-in delay-1">Welcome to</span>
+
+        <h1 class="hero__title fade-in delay-1">
+          Susmi Nails &amp;
+          <span class="line-2">Beauty Studio</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in delay-2">
+          Where artistry meets elegance. Luxury nail extensions, lash services, and premium beauty treatments crafted just for you.
+        </p>
+
+        <div class="hero__actions fade-in delay-3">
+          <a href="https://wa.me/9779810277266" target="_blank" rel="noopener"
+             class="btn btn--whatsapp btn--lg">
+            <i class="fab fa-whatsapp"></i> Book on WhatsApp
+          </a>
+          <a href="services.html" class="btn btn--ghost btn--lg">
+            Explore Services <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="hero__stats fade-in delay-4">
+          <div>
+            <div class="hero__stat-val" data-target="500" data-suffix="+">500+</div>
+            <div class="hero__stat-lbl">Happy Clients</div>
+          </div>
+          <div>
+            <div class="hero__stat-val" data-target="8" data-suffix="+">8+</div>
+            <div class="hero__stat-lbl">Services</div>
+          </div>
+          <div>
+            <div class="hero__stat-val">5 ★</div>
+            <div class="hero__stat-lbl">Rated</div>
+          </div>
+          <div>
+            <div class="hero__stat-val" data-target="2">2</div>
+            <div class="hero__stat-lbl">Locations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero__visual fade-in delay-2">
+        <div class="hero__ring-outer">
+          <div class="hero__ring-dot"></div>
+          <div class="hero__ring-dot"></div>
+          <div class="hero__ring-dot"></div>
+          <div class="hero__ring-dot"></div>
+
+          <div class="hero__img-circle">
+            <img src="images/about/founder.jpg" alt="Susmita Shrestha — Founder, Susmi Nails and Beauty Studio">
+          </div>
+        </div>
+
+        <!-- Floating service pills — clickable -->
+        <a href="services.html#nail-extension" class="hero__pill-float"><i class="fas fa-spa"></i> Nail Extension</a>
+        <a href="services.html#lash-extension" class="hero__pill-float"><i class="fas fa-eye"></i> Lash Extension</a>
+        <a href="services.html#lip-blush"      class="hero__pill-float"><i class="fas fa-magic"></i> Lip Blush</a>
+        <a href="services.html#facial"         class="hero__pill-float"><i class="fas fa-leaf"></i> Facial</a>
+
+        <!-- Booking badge -->
+        <div class="hero__badge">
+          <div class="hero__badge-ico">
+            <i class="fas fa-check" style="color:#fff;"></i>
+          </div>
+          <div>
+            <div class="hero__badge-val">Now Accepting</div>
+            <div class="hero__badge-lbl">Walk-ins & Bookings</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue">
+    <div class="scroll-cue__dot"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ======================== MARQUEE ======================== -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <!-- First copy -->
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lash Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lash Lift &amp; Tint</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Manicure &amp; Pedicure</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Facial Treatment</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Hair Keratin</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lip Blush</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Sukedhara &amp; Harisiddhi</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lash Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lash Lift &amp; Tint</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Manicure &amp; Pedicure</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Facial Treatment</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Hair Keratin</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Lip Blush</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Sukedhara &amp; Harisiddhi</span>
+  </div>
+</div>
+
+<!-- ======================== SERVICES ======================== -->
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="services-intro text-center fade-in">
+      <span class="label">What We Offer</span>
+      <h2 class="section-title">
+        Our <span class="text-script">Signature</span> Services
+      </h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle" style="margin-inline:auto;margin-top:.75rem;">
+        Each treatment is performed by skilled artists using premium products — for results that will leave you glowing.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card fade-in delay-1">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-05-vibrant-mixed.jpeg" alt="Nail Extension">
+          <span class="service-card__num">01</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">💅</div>
+          <div>
+            <div class="service-card__name">Nail Extension</div>
+            <div class="service-card__tagline">Gel · Acrylic · Builder Gel</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Gorgeous, long-lasting nail extensions shaped perfectly to your style. From natural to bold statement sets.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Nail%20Extension%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-2">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-03-french-3d-flower.jpeg" alt="Lash Extension">
+          <span class="service-card__num">02</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">✨</div>
+          <div>
+            <div class="service-card__name">Lash Extension</div>
+            <div class="service-card__tagline">Classic · Hybrid · Volume</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Wake up every morning with flutter-worthy lashes. Individual application for a seamless, natural look.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Lash%20Extension%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-3">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-07-gold-chrome.jpeg" alt="Lash Lift">
+          <span class="service-card__num">03</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">👁️</div>
+          <div>
+            <div class="service-card__name">Lash Lift &amp; Tint</div>
+            <div class="service-card__tagline">Natural · Long Lasting</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Curl and darken your natural lashes for a wide-eyed, refreshed look — mascara-free for up to 8 weeks.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Lash%20Lift%20%26%20Tint%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-1">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-11-white-french.jpeg" alt="Manicure Pedicure">
+          <span class="service-card__num">04</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">🌸</div>
+          <div>
+            <div class="service-card__name">Manicure &amp; Pedicure</div>
+            <div class="service-card__tagline">Classic · Spa · Gel Polish</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Relax and rejuvenate with our classic and spa nail treatments for beautifully groomed hands and feet.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Manicure%20%26%20Pedicure%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-2">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-02-pink-floral.jpeg" alt="Facial Treatment">
+          <span class="service-card__num">05</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">🌿</div>
+          <div>
+            <div class="service-card__name">Facial Treatment</div>
+            <div class="service-card__tagline">Brightening · Anti-Ageing · Hydrating</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Personalised deep-cleansing facials tailored to your skin type for visibly radiant, glowing skin.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Facial%20Treatment%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-3">
+        <div class="service-card__photo">
+          <img src="images/gallery/hair-01-keratin.jpeg" alt="Hair Keratin">
+          <span class="service-card__num">06</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">💇</div>
+          <div>
+            <div class="service-card__name">Hair Keratin</div>
+            <div class="service-card__tagline">Smooth · Frizz-Free · Lasting</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Say goodbye to frizz. Keratin treatment leaves hair sleek, shiny, and manageable for months.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Keratin%20Treatment%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-1">
+        <div class="service-card__photo">
+          <img src="images/gallery/other-01-henna-bridal.jpeg" alt="Henna Art">
+          <span class="service-card__num">07</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">🌿</div>
+          <div>
+            <div class="service-card__name">Henna Art</div>
+            <div class="service-card__tagline">Bridal · Party · Traditional</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Intricate and beautiful henna designs for bridal ceremonies, parties, and special occasions.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Henna%20Art%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-2">
+        <div class="service-card__photo">
+          <img src="images/gallery/nails-04-burgundy-gold.jpeg" alt="Lip Blush">
+          <span class="service-card__num">08</span>
+        </div>
+        <div class="service-card__top">
+          <div class="service-card__icon-wrap">💄</div>
+          <div>
+            <div class="service-card__name">Lip Blush</div>
+            <div class="service-card__tagline">Semi-Permanent · Soft Finish</div>
+          </div>
+        </div>
+        <div class="service-card__body">
+          <p class="service-card__desc">Wake up with perfectly tinted, shaped lips every day. Semi-permanent colour that lasts 2–3 years.</p>
+          <a href="https://wa.me/9779810277266?text=Hi!%20I'd%20like%20to%20book%20a%20Lip%20Blush%20appointment." target="_blank" rel="noopener" class="service-card__cta"><i class="fab fa-whatsapp"></i> Book This Service</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-3 fade-in">
+      <a href="services.html" class="btn btn--outline-gold btn--lg">
+        View All Services <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ABOUT ======================== -->
+<section class="section section--alt" id="about">
+  <div class="container">
+    <div class="about-wrap">
+
+      <!-- Image side -->
+      <div class="about-visual fade-left">
+        <div class="about-img-main">
+          <img src="images/hero/hero-salon-2.jpeg" alt="Inside Susmi Nails and Beauty Studio">
+        </div>
+        <div class="about-img-accent"></div>
+        <div class="about-img-badge">
+          <div class="about-img-badge-num" data-target="500" data-suffix="+">500+</div>
+          <div class="about-img-badge-txt">Happy Clients</div>
+        </div>
+      </div>
+
+      <!-- Content side -->
+      <div class="about-content fade-right">
+        <span class="label">About Us</span>
+        <h2 class="section-title">
+          Where Beauty<br>Meets <span>Passion</span>
+        </h2>
+        <div class="divider"><div class="divider-diamond"></div></div>
+
+        <p>
+          Susmi Nails and Beauty Studio is a premium beauty studio in Sukedhara, Harisiddhi, Lalitpur. Founded with the belief that everyone deserves to feel confident and radiant, we've grown into a trusted beauty destination for clients across the Kathmandu Valley.
+        </p>
+
+        <blockquote class="about-quote">
+          "Beauty is not just about how you look — it's about how you feel."
+        </blockquote>
+
+        <p>
+          Our team of certified artists brings artistry and care to every single service — using only professional-grade products that are gentle on your skin and nails.
+        </p>
+
+        <div class="about-feats">
+          <div class="about-feat">
+            <div class="about-feat__ico"><i class="fas fa-certificate"></i></div>
+            <div>
+              <span class="about-feat__name">Certified Artists</span>
+              <span class="about-feat__sub">Professionally trained team</span>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat__ico"><i class="fas fa-gem"></i></div>
+            <div>
+              <span class="about-feat__name">Premium Products</span>
+              <span class="about-feat__sub">Top-quality brands only</span>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat__ico"><i class="fas fa-heart"></i></div>
+            <div>
+              <span class="about-feat__name">Personalised Care</span>
+              <span class="about-feat__sub">Tailored to every client</span>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat__ico"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <span class="about-feat__name">Hygienic &amp; Safe</span>
+              <span class="about-feat__sub">Strict sterilisation</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:.85rem;flex-wrap:wrap;margin-top:.5rem;">
+          <a href="about.html" class="btn btn--gold btn--lg">
+            Our Full Story <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="https://wa.me/9779810277266" target="_blank" rel="noopener"
+             class="btn btn--outline-gold btn--lg">
+            <i class="fab fa-whatsapp"></i> Book Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== WHY US (dark) ======================== -->
+<section class="section why-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center fade-in">
+      <span class="label">Why Choose Us</span>
+      <h2 class="section-title" style="color:#fff;">
+        The <span class="text-script" style="-webkit-text-fill-color:initial;background:none;color:var(--gold-200);">Susmi Nails</span> Difference
+      </h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.5);margin-inline:auto;margin-top:.75rem;">
+        We don't just offer beauty treatments — we craft experiences you'll want to come back for.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card fade-in delay-1">
+        <div class="why-card__ico"><i class="fas fa-user-graduate"></i></div>
+        <div class="why-card__name">Expert Technicians</div>
+        <p class="why-card__desc">Trained and certified artists with an eye for detail in every stroke and application.</p>
+      </div>
+      <div class="why-card fade-in delay-2">
+        <div class="why-card__ico"><i class="fas fa-leaf"></i></div>
+        <div class="why-card__name">Premium Products</div>
+        <p class="why-card__desc">We use only trusted, professional-grade products that are gentle and long-lasting.</p>
+      </div>
+      <div class="why-card fade-in delay-3">
+        <div class="why-card__ico"><i class="fas fa-spa"></i></div>
+        <div class="why-card__name">Relaxing Space</div>
+        <p class="why-card__desc">A warm, welcoming atmosphere designed to help you unwind, relax, and feel pampered.</p>
+      </div>
+      <div class="why-card fade-in delay-4">
+        <div class="why-card__ico"><i class="fas fa-shield-alt"></i></div>
+        <div class="why-card__name">Hygiene First</div>
+        <p class="why-card__desc">Strict sterilisation and hygiene protocols maintained at every station, every single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GALLERY ======================== -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="text-center fade-in">
+      <span class="label">Our Work</span>
+      <h2 class="section-title">
+        A Glimpse of Our <span>Creations</span>
+      </h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle" style="margin-inline:auto;margin-top:.75rem;">
+        Every look we create tells a story. Browse our work and get inspired for your next visit.
+      </p>
+    </div>
+
+    <div class="gallery-grid-home mt-3">
+      <div class="gi gi-c1 fade-in delay-1">
+        <img src="images/gallery/nails-05-vibrant-mixed.jpeg" alt="Vibrant nail art set">
+        <div class="gi-overlay"><div class="gi-label">Nail Art</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gi gi-c2 fade-in delay-2">
+        <img src="images/gallery/nails-03-french-3d-flower.jpeg" alt="French nails with 3D flower">
+        <div class="gi-overlay"><div class="gi-label">3D Nail Extension</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gi gi-c3 fade-in delay-3">
+        <img src="images/gallery/nails-07-gold-chrome.jpeg" alt="Gold chrome nails">
+        <div class="gi-overlay"><div class="gi-label">Gold Chrome Nails</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gi gi-c4 fade-in delay-2">
+        <img src="images/gallery/other-01-henna-bridal.jpeg" alt="Bridal henna design">
+        <div class="gi-overlay"><div class="gi-label">Bridal Henna</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gi gi-c5 fade-in delay-3">
+        <img src="images/gallery/nails-04-burgundy-gold.jpeg" alt="Burgundy gold nails">
+        <div class="gi-overlay"><div class="gi-label">Nail Extension</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-3 fade-in">
+      <a href="gallery.html" class="btn btn--outline-gold btn--lg">
+        View Full Gallery <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TESTIMONIALS ======================== -->
+<section class="section testimonials-wrap" id="testimonials">
+  <div class="container">
+    <div class="text-center fade-in">
+      <span class="label">Client Love</span>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="tcard fade-in delay-1">
+        <div class="tcard__stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="tcard__text">
+          "I got my nail extensions done here and absolutely love them! The technician was so careful and the result looks so natural and beautiful. Will definitely be coming back!"
+        </p>
+        <div class="tcard__author">
+          <div class="tcard__avatar">S</div>
+          <div>
+            <div class="tcard__name">Sunita Maharjan</div>
+            <div class="tcard__service">Nail Extension</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard fade-in delay-2">
+        <div class="tcard__stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="tcard__text">
+          "Got my lash lift done at Susmi's and the results are incredible. My natural lashes look so full and curled — I haven't touched mascara in weeks! The staff is super friendly too."
+        </p>
+        <div class="tcard__author">
+          <div class="tcard__avatar">P</div>
+          <div>
+            <div class="tcard__name">Priya Karmacharya</div>
+            <div class="tcard__service">Lash Lift &amp; Tint</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard fade-in delay-3">
+        <div class="tcard__stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p class="tcard__text">
+          "The facial treatment here is something else! My skin felt so fresh and glowing after. The team clearly knows what they're doing and genuinely cares about your skin. Love this place!"
+        </p>
+        <div class="tcard__author">
+          <div class="tcard__avatar">A</div>
+          <div>
+            <div class="tcard__name">Anika Tamang</div>
+            <div class="tcard__service">Facial Treatment</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CTA ======================== -->
+<section class="cta-section">
+  <div class="cta-section__glow cta-section__glow--1"></div>
+  <div class="cta-section__glow cta-section__glow--2"></div>
+  <div class="container">
+    <div class="fade-in">
+      <span class="label" style="color:var(--gold-200);">Ready to Glow?</span>
+      <h2>Book Your <em>Beauty Session</em> Today</h2>
+      <p>
+        Reach out on WhatsApp, give us a call, or simply walk in at either of our<br>Sukedhara or Harisiddhi locations.
+      </p>
+      <div class="cta-actions">
+        <a href="https://wa.me/9779810277266" target="_blank" rel="noopener"
+           class="btn btn--whatsapp btn--lg">
+          <i class="fab fa-whatsapp"></i> WhatsApp Us
+        </a>
+        <a href="tel:+9779810277266" class="btn btn--gold btn--lg">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+        <a href="contact.html" class="btn btn--ghost btn--lg">
+          <i class="fas fa-map-marker-alt"></i> Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div>
+        <div class="footer__logo-name">Susmi</div>
+        <span class="footer__logo-sub">Nails &amp; Beauty Studio</span>
+        <p class="footer__blurb">
+          Premium beauty treatments in the heart of Lalitpur, Nepal. Nail extensions, lash services, facials and more — all crafted with care and precision.
+        </p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/susmi_nails_and_beauty_studio/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61574006287825" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@susminailandbeautystudio" target="_blank" rel="noopener" class="footer__social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="footer__social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Quick Links</div>
+        <ul class="footer__links">
+          <li><a href="index.html"    class="footer__link"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="gallery.html"  class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="about.html"    class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="contact.html"  class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Services</div>
+        <ul class="footer__links">
+          <li><a href="services.html#nail-extension" class="footer__link"><i class="fas fa-chevron-right"></i> Nail Extension</a></li>
+          <li><a href="services.html#lash-extension" class="footer__link"><i class="fas fa-chevron-right"></i> Lash Extension</a></li>
+          <li><a href="services.html#lash-lift"      class="footer__link"><i class="fas fa-chevron-right"></i> Lash Lift &amp; Tint</a></li>
+          <li><a href="services.html#manicure"       class="footer__link"><i class="fas fa-chevron-right"></i> Mani &amp; Pedi</a></li>
+          <li><a href="services.html#facial"         class="footer__link"><i class="fas fa-chevron-right"></i> Facial</a></li>
+          <li><a href="services.html#keratin"        class="footer__link"><i class="fas fa-chevron-right"></i> Hair Keratin</a></li>
+          <li><a href="services.html#lip-blush"      class="footer__link"><i class="fas fa-chevron-right"></i> Lip Blush</a></li>
+          <li><a href="services.html#henna"         class="footer__link"><i class="fas fa-chevron-right"></i> Henna Art</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Get in Touch</div>
+        <div class="footer__contact-row">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Sukedhara, Harisiddhi, Lalitpur, Nepal</span>
+        </div>
+        <div class="footer__contact-row">
+          <i class="fas fa-phone"></i>
+          <div><a href="tel:+9779810277266">+977 9810277266</a><br><a href="tel:+9779843462119">+977 9843462119</a></div>
+        </div>
+        <div class="footer__contact-row">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:susmitashrestha20512053@gmail.com" style="word-break:break-all;">susmitashrestha20512053@gmail.com</a>
+        </div>
+        <div class="footer__contact-row">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/9779810277266" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025 Susmi Nails and Beauty Studio. All rights reserved.</span>
+      <span>Made with <i class="fas fa-heart" style="color:var(--gold-300);"></i> in Lalitpur, Nepal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="wa-float" aria-label="Book on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span>Book Now</span>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+

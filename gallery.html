@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Susmi Nails and Beauty Studio</title>
+  <meta name="description" content="Browse our full gallery of nail art, nail extensions, henna, keratin treatments and more at Susmi Nails and Beauty Studio, Lalitpur, Nepal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- LIGHTBOX ---- */
+    .lightbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.96);align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+    .lightbox.open{display:flex}
+    .lightbox__img{max-width:min(580px,92vw);max-height:82vh;border-radius:16px;object-fit:contain;border:1px solid rgba(192,144,32,.25);box-shadow:0 0 80px rgba(0,0,0,.7)}
+    .lightbox__label{font-family:'Playfair Display',serif;font-size:1.05rem;color:rgba(255,255,255,.7);font-style:italic}
+    .lightbox__close{position:absolute;top:1.5rem;right:1.5rem;color:#fff;font-size:1.5rem;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);transition:background .2s}
+    .lightbox__close:hover{background:rgba(255,255,255,.2)}
+    .lightbox__hint{font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.08em}
+    .lightbox__nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+    .lightbox__nav:hover{background:rgba(192,144,32,.45)}
+    .lightbox__nav--prev{left:1.5rem}
+    .lightbox__nav--next{right:1.5rem}
+
+    /* ---- GALLERY ITEMS ---- */
+    .g-full-item{border-radius:12px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer;transition:transform .35s ease,box-shadow .35s ease;background:#f5e8f0}
+    .g-full-item:hover{transform:scale(1.04);box-shadow:0 20px 56px rgba(180,60,120,.28);z-index:2}
+    .g-full-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+    .g-full-item:hover img{transform:scale(1.06)}
+    .g-full-item .gi-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(45,16,37,.82) 0%,transparent 52%);display:flex;align-items:flex-end;padding:1rem;opacity:0;transition:opacity .3s}
+    .g-full-item:hover .gi-overlay{opacity:1}
+    .gi-overlay-label{font-size:.78rem;font-weight:600;color:#fff;letter-spacing:.03em}
+    .g-full-item .gi-icon{position:absolute;top:.75rem;right:.75rem;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.75rem;transition:background .3s}
+    .g-full-item:hover .gi-icon{background:linear-gradient(135deg,#c09020,#e8c848)}
+
+    /* ---- FILTER ---- */
+    .g-full-item[data-hidden="1"]{display:none}
+
+    /* ---- COUNT BADGE ---- */
+    .gf-btn{position:relative}
+    .gf-count{display:inline-flex;align-items:center;justify-content:center;background:rgba(192,144,32,.18);color:var(--gold-500);font-size:.6rem;font-weight:700;border-radius:999px;padding:.1rem .4rem;margin-left:.35rem;min-width:18px}
+    .gf-btn.active .gf-count{background:rgba(255,255,255,.25);color:#fff}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <span class="navbar__logo-name">Susmi</span>
+        <span class="navbar__logo-sub">Nails &amp; Beauty Studio</span>
+      </a>
+      <ul class="navbar__nav">
+        <li><a href="index.html"    class="navbar__link">Home</a></li>
+        <li><a href="services.html" class="navbar__link">Services</a></li>
+        <li><a href="gallery.html"  class="navbar__link active">Gallery</a></li>
+        <li><a href="about.html"    class="navbar__link">About</a></li>
+        <li><a href="contact.html"  class="navbar__link">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="btn btn--gold btn--sm">
+          <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+      <button class="navbar__toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="navbar__drawer" id="navDrawer">
+  <button class="navbar__drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+  <a href="index.html"    class="navbar__link">Home</a>
+  <a href="services.html" class="navbar__link">Services</a>
+  <a href="gallery.html"  class="navbar__link active">Gallery</a>
+  <a href="about.html"    class="navbar__link">About</a>
+  <a href="contact.html"  class="navbar__link">Contact</a>
+  <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg navbar__drawer-cta"><i class="fab fa-whatsapp"></i> Book on WhatsApp</a>
+</div>
+<div class="navbar__overlay" id="navOverlay"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner fade-in">
+      <span class="label">Our Portfolio</span>
+      <h1>Beauty <em style="font-style:italic;color:var(--gold-200);">Gallery</em></h1>
+      <div class="divider divider--center" style="margin-top:.75rem;"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle mt-1">Every look we create is a work of art. Browse our portfolio and get inspired for your next visit.</p>
+      <div class="page-hero__bread">
+        <a href="index.html">Home</a>
+        <span><i class="fas fa-chevron-right" style="font-size:.55rem;"></i></span>
+        <span>Gallery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Art</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Henna &amp; Bridal</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Floral Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Chrome Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Keratin Treatment</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Leopard Print Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Follow us on Instagram</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Art</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Nail Extensions</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Henna &amp; Bridal</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Floral Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Chrome Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Keratin Treatment</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Leopard Print Nails</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Follow us on Instagram</span>
+  </div>
+</div>
+
+<!-- GALLERY SECTION -->
+<section class="section">
+  <div class="container">
+
+    <div class="text-center fade-in" style="margin-bottom:2.5rem;">
+      <span class="label">Our Work</span>
+      <h2 class="section-title">51 Looks, <span class="text-script">Endless Inspiration</span></h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle mt-1" style="margin-inline:auto;">Click any photo to view full size. Use the filters to browse by category.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="gallery-filters fade-in">
+      <button class="gf-btn active" data-filter="all">All Work <span class="gf-count">51</span></button>
+      <button class="gf-btn" data-filter="nails">Nails <span class="gf-count">47</span></button>
+      <button class="gf-btn" data-filter="hair">Hair <span class="gf-count">1</span></button>
+      <button class="gf-btn" data-filter="henna">Henna <span class="gf-count">3</span></button>
+    </div>
+
+    <!-- Full Grid -->
+    <div class="gallery-full-grid" id="galleryGrid">
+
+      <!-- ===== NAILS (47) ===== -->
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Silver Holographic Nails" data-src="images/gallery/nails-01-silver-holographic.jpeg">
+        <img src="images/gallery/nails-01-silver-holographic.jpeg" alt="Silver holographic nail extensions" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Silver Holographic</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Pink Floral Nails" data-src="images/gallery/nails-02-pink-floral.jpeg">
+        <img src="images/gallery/nails-02-pink-floral.jpeg" alt="Pink floral nail art" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="French 3D Flower Nails" data-src="images/gallery/nails-03-french-3d-flower.jpeg">
+        <img src="images/gallery/nails-03-french-3d-flower.jpeg" alt="French tips with 3D flower detail" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">French 3D Flowers</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Burgundy Gold Nails" data-src="images/gallery/nails-04-burgundy-gold.jpeg">
+        <img src="images/gallery/nails-04-burgundy-gold.jpeg" alt="Burgundy and gold nail extensions" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Burgundy Gold</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Vibrant Mixed Nail Art" data-src="images/gallery/nails-05-vibrant-mixed.jpeg">
+        <img src="images/gallery/nails-05-vibrant-mixed.jpeg" alt="Vibrant mixed colour nail art" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Vibrant Mix</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Black French Heart Nails" data-src="images/gallery/nails-06-black-french-heart.jpeg">
+        <img src="images/gallery/nails-06-black-french-heart.jpeg" alt="Black French tips with heart" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Black French Heart</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Gold Chrome Nails" data-src="images/gallery/nails-07-gold-chrome.jpeg">
+        <img src="images/gallery/nails-07-gold-chrome.jpeg" alt="Gold chrome nail extensions" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Gold Chrome</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Blue Glitter Nails" data-src="images/gallery/nails-08-blue-glitter.jpeg">
+        <img src="images/gallery/nails-08-blue-glitter.jpeg" alt="Blue glitter nail art" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Blue Glitter</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Nude Pink Nails" data-src="images/gallery/nails-09-nude-pink.jpeg">
+        <img src="images/gallery/nails-09-nude-pink.jpeg" alt="Soft nude pink nails" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Pink</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Dark Red Chrome Nails" data-src="images/gallery/nails-10-dark-red-chrome.jpeg">
+        <img src="images/gallery/nails-10-dark-red-chrome.jpeg" alt="Dark red chrome nails" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Dark Red Chrome</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="White French Tips" data-src="images/gallery/nails-11-white-french.jpeg">
+        <img src="images/gallery/nails-11-white-french.jpeg" alt="Classic white French manicure" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">White French Tips</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Brown Gold 3D Nail Art" data-src="images/gallery/nails-12-brown-gold-3d.jpeg">
+        <img src="images/gallery/nails-12-brown-gold-3d.jpeg" alt="Brown and gold 3D nail art" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Brown Gold 3D</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Lavender Nails" data-src="images/gallery/nails-13-lavender.jpeg">
+        <img src="images/gallery/nails-13-lavender.jpeg" alt="Soft lavender nail extensions" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Lavender</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Purple Ombre Glitter" data-src="images/gallery/nails-14-purple-ombre.jpeg">
+        <img src="images/gallery/nails-14-purple-ombre.jpeg" alt="Purple ombre glitter nails" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Purple Ombre Glitter</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Pink Chrome Floral" data-src="images/gallery/nails-15-pink-chrome-floral.jpeg">
+        <img src="images/gallery/nails-15-pink-chrome-floral.jpeg" alt="Pink chrome nails with floral accent" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Chrome Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Ombre French with Rhinestones" data-src="images/gallery/nails-16-ombre-french-rhinestone.jpeg">
+        <img src="images/gallery/nails-16-ombre-french-rhinestone.jpeg" alt="Ombre French tips with rhinestones" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Ombre French Rhinestone</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Nude French Floral" data-src="images/gallery/nails-17-nude-french-floral.jpeg">
+        <img src="images/gallery/nails-17-nude-french-floral.jpeg" alt="Nude French nails with floral detail" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude French Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Silver Jewel Nails" data-src="images/gallery/nails-18-silver-jewel.jpeg">
+        <img src="images/gallery/nails-18-silver-jewel.jpeg" alt="Silver glitter nails with jewel accents" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Silver Jewel</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Nude White Floral" data-src="images/gallery/nails-19-nude-white-floral-a.jpeg">
+        <img src="images/gallery/nails-19-nude-white-floral-a.jpeg" alt="Nude nails with white floral design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude White Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Nude Floral Sparkle" data-src="images/gallery/nails-20-nude-white-floral-b.jpeg">
+        <img src="images/gallery/nails-20-nude-white-floral-b.jpeg" alt="Nude nails with white floral sparkle" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Floral Sparkle</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Nude Rhinestone Art" data-src="images/gallery/nails-21-nude-rhinestone.jpeg">
+        <img src="images/gallery/nails-21-nude-rhinestone.jpeg" alt="Nude nails with rhinestone embellishment" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Rhinestone</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Nude Jewel Floral" data-src="images/gallery/nails-22-nude-jewel.jpeg">
+        <img src="images/gallery/nails-22-nude-jewel.jpeg" alt="Nude nails with jewel floral design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Jewel Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Burgundy Dark Floral" data-src="images/gallery/nails-23-burgundy-dark-floral.jpeg">
+        <img src="images/gallery/nails-23-burgundy-dark-floral.jpeg" alt="Burgundy nails with dark floral design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Burgundy Dark Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Dark Red Floral Nails" data-src="images/gallery/nails-24-dark-red-floral.jpeg">
+        <img src="images/gallery/nails-24-dark-red-floral.jpeg" alt="Dark red nails with floral brown detail" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Dark Red Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Pink Leopard Print" data-src="images/gallery/nails-25-pink-leopard-salon.jpeg">
+        <img src="images/gallery/nails-25-pink-leopard-salon.jpeg" alt="Pink nails with leopard print design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Leopard Print</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Pink Bow &amp; Pearl Nails" data-src="images/gallery/nails-26-pink-bow-pearl.jpeg">
+        <img src="images/gallery/nails-26-pink-bow-pearl.jpeg" alt="Pink nails with bow and pearl accents" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Bow &amp; Pearl</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Black Ombre Heart Nails" data-src="images/gallery/nails-27-black-ombre-heart.jpeg">
+        <img src="images/gallery/nails-27-black-ombre-heart.jpeg" alt="Black ombre nails with heart design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Black Ombre Heart</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Gold Pink Line Art" data-src="images/gallery/nails-28-gold-pink-lines.jpeg">
+        <img src="images/gallery/nails-28-gold-pink-lines.jpeg" alt="Gold metallic and pink nails with line design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Gold Pink Line Art</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Gradient Leopard Nails" data-src="images/gallery/nails-29-gradient-leopard.jpeg">
+        <img src="images/gallery/nails-29-gradient-leopard.jpeg" alt="Yellow orange to pink gradient with leopard" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Gradient Leopard</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Pink Butterfly Floral" data-src="images/gallery/nails-30-pink-butterfly.jpeg">
+        <img src="images/gallery/nails-30-pink-butterfly.jpeg" alt="Pink nails with butterfly and floral accents" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Butterfly Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Gold Yellow Leopard" data-src="images/gallery/nails-31-gold-yellow-leopard.jpeg">
+        <img src="images/gallery/nails-31-gold-yellow-leopard.jpeg" alt="Gold yellow nails with leopard print" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Gold Yellow Leopard</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Gold Leopard Line Art" data-src="images/gallery/nails-32-gold-leopard-lines.jpeg">
+        <img src="images/gallery/nails-32-gold-leopard-lines.jpeg" alt="Gold nails with leopard and line design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Gold Leopard Lines</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Nude Blue Berries" data-src="images/gallery/nails-33-nude-blue-berries.jpeg">
+        <img src="images/gallery/nails-33-nude-blue-berries.jpeg" alt="Nude nails with blue berry and floral bow" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Blue Berries</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="White Blue Berries" data-src="images/gallery/nails-34-white-blue-berries.jpeg">
+        <img src="images/gallery/nails-34-white-blue-berries.jpeg" alt="White cream nails with blue berries and bow" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">White Blue Berries</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Butterfly Rhinestone Nails" data-src="images/gallery/nails-35-butterfly-rhinestone.jpeg">
+        <img src="images/gallery/nails-35-butterfly-rhinestone.jpeg" alt="Pink butterfly nails with rhinestones" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Butterfly Rhinestone</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Blue Cobalt Glitter" data-src="images/gallery/nails-36-blue-cobalt-glitter.jpeg">
+        <img src="images/gallery/nails-36-blue-cobalt-glitter.jpeg" alt="Blue cobalt nails with silver glitter" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Blue Cobalt Glitter</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Blue Cobalt Sparkle" data-src="images/gallery/nails-37-blue-cobalt-sparkle.jpeg">
+        <img src="images/gallery/nails-37-blue-cobalt-sparkle.jpeg" alt="Blue cobalt nails with sparkle detail" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Blue Cobalt Sparkle</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Light Blue Gold Line" data-src="images/gallery/nails-38-light-blue-gold.jpeg">
+        <img src="images/gallery/nails-38-light-blue-gold.jpeg" alt="Light blue nails with gold line and pearls" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Light Blue Gold</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Nude Glitter Gold" data-src="images/gallery/nails-39-nude-glitter-gold.jpeg">
+        <img src="images/gallery/nails-39-nude-glitter-gold.jpeg" alt="Nude nails with glitter gold accent" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Glitter Gold</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Nude Sparkle Nails" data-src="images/gallery/nails-40-nude-sparkle.jpeg">
+        <img src="images/gallery/nails-40-nude-sparkle.jpeg" alt="Nude nails with sparkle rhinestone detail" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Sparkle</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Burgundy Leopard Nails" data-src="images/gallery/nails-41-burgundy-leopard.jpeg">
+        <img src="images/gallery/nails-41-burgundy-leopard.jpeg" alt="Burgundy nails with leopard print" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Burgundy Leopard</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Nude Burgundy Accent" data-src="images/gallery/nails-42-nude-burgundy-accent.jpeg">
+        <img src="images/gallery/nails-42-nude-burgundy-accent.jpeg" alt="Nude nails with burgundy leopard accent" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Burgundy Accent</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Nude Burgundy Red" data-src="images/gallery/nails-43-nude-burgundy-red.jpeg">
+        <img src="images/gallery/nails-43-nude-burgundy-red.jpeg" alt="Nude nails with burgundy red accent" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Burgundy Red</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Nude Gold Rhinestone" data-src="images/gallery/nails-44-nude-gold-rhinestone.jpeg">
+        <img src="images/gallery/nails-44-nude-gold-rhinestone.jpeg" alt="Nude nails with gold glitter and rhinestones" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Gold Rhinestone</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="nails" data-label="Pink Burgundy Embellished" data-src="images/gallery/nails-45-pink-burgundy-embellished.jpeg">
+        <img src="images/gallery/nails-45-pink-burgundy-embellished.jpeg" alt="Pink mauve nails with burgundy embellishment" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Pink Burgundy</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-1" data-category="nails" data-label="Nude Watercolor Art" data-src="images/gallery/nails-46-nude-watercolor.jpeg">
+        <img src="images/gallery/nails-46-nude-watercolor.jpeg" alt="Nude nails with watercolor marble design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Watercolor</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="nails" data-label="Nude Brown Outline" data-src="images/gallery/nails-47-nude-brown-outline.jpeg">
+        <img src="images/gallery/nails-47-nude-brown-outline.jpeg" alt="Nude nails with brown outline embellishment" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Nude Brown Outline</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <!-- ===== HAIR (1) ===== -->
+      <div class="g-full-item fade-in delay-1" data-category="hair" data-label="Keratin Hair Treatment" data-src="images/gallery/hair-01-keratin.jpeg">
+        <img src="images/gallery/hair-01-keratin.jpeg" alt="Hair keratin straightening treatment" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Keratin Treatment</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <!-- ===== HENNA (3) ===== -->
+      <div class="g-full-item fade-in delay-1" data-category="henna" data-label="Bridal Henna Design" data-src="images/gallery/other-01-henna-bridal.jpeg">
+        <img src="images/gallery/other-01-henna-bridal.jpeg" alt="Intricate bridal henna design" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Bridal Henna</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-2" data-category="henna" data-label="Henna Floral Design" data-src="images/gallery/other-02-henna.jpeg">
+        <img src="images/gallery/other-02-henna.jpeg" alt="Henna floral hand art" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Henna Floral</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+      <div class="g-full-item fade-in delay-3" data-category="henna" data-label="Hand Henna Art" data-src="images/gallery/henna-03-hand-floral.jpeg">
+        <img src="images/gallery/henna-03-hand-floral.jpeg" alt="Detailed hand henna art with mandala patterns" loading="lazy">
+        <div class="gi-overlay"><div class="gi-overlay-label">Hand Henna Mandala</div></div>
+        <div class="gi-icon"><i class="fas fa-expand"></i></div>
+      </div>
+
+    </div><!-- /gallery-full-grid -->
+  </div>
+</section>
+
+<!-- BEHIND THE SCENES VIDEOS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="video-section-title fade-in">
+      <span class="label">Behind the Scenes</span>
+      <h2 class="section-title">Watch Our <span class="text-script">Artists</span> at Work</h2>
+      <div class="divider divider--center" style="margin-top:.75rem;"><div class="divider-diamond"></div></div>
+      <p class="section-subtitle mt-1" style="margin-inline:auto;max-width:540px;">A peek into the craft, care, and creativity that goes into every treatment.</p>
+    </div>
+    <div class="video-grid mt-3">
+      <div class="video-item fade-in delay-1">
+        <video src="images/videos/vid-01-nails.mp4" muted loop playsinline preload="none" poster="images/gallery/nails-05-vibrant-mixed.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> Nail Art in Progress</div>
+      </div>
+      <div class="video-item fade-in delay-2">
+        <video src="images/videos/vid-02-nails.mp4" muted loop playsinline preload="none" poster="images/gallery/nails-07-gold-chrome.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> Extension Application</div>
+      </div>
+      <div class="video-item fade-in delay-3">
+        <video src="images/videos/vid-03-nails.mp4" muted loop playsinline preload="none" poster="images/gallery/nails-03-french-3d-flower.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> 3D Detail Work</div>
+      </div>
+      <div class="video-item fade-in delay-1">
+        <video src="images/videos/vid-04-salon.mp4" muted loop playsinline preload="none" poster="images/hero/hero-salon.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> Inside the Studio</div>
+      </div>
+      <div class="video-item fade-in delay-2">
+        <video src="images/videos/vid-05-beauty.mp4" muted loop playsinline preload="none" poster="images/gallery/nails-01-silver-holographic.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> Glitter &amp; Chrome</div>
+      </div>
+      <div class="video-item fade-in delay-3">
+        <video src="images/videos/vid-06-beauty.mp4" muted loop playsinline preload="none" poster="images/gallery/nails-09-nude-pink.jpeg" onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+        <div class="video-item__label"><i class="fas fa-play-circle"></i> Finishing Touches</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW CTA -->
+<section class="section why-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center fade-in" style="max-width:620px;margin-inline:auto;">
+      <span class="label" style="color:var(--gold-200);">Follow Along</span>
+      <h2 class="section-title" style="color:#fff;">See More on <em>Social Media</em></h2>
+      <div class="divider divider--center"><div class="divider-diamond"></div></div>
+      <p style="color:rgba(255,255,255,.55);margin-top:.85rem;">Follow us on Instagram and TikTok for daily beauty inspiration, behind-the-scenes content, and our latest creations.</p>
+      <div class="cta-actions mt-2">
+        <a href="https://www.instagram.com/susmi_nails_and_beauty_studio/" target="_blank" rel="noopener" class="btn btn--gold btn--lg"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.tiktok.com/@susminailandbeautystudio" target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><i class="fab fa-tiktok"></i> TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-section__glow cta-section__glow--1"></div>
+  <div class="cta-section__glow cta-section__glow--2"></div>
+  <div class="container">
+    <div class="fade-in">
+      <span class="label" style="color:var(--gold-200);">Love What You See?</span>
+      <h2>Book Your <em>Appointment</em> Today</h2>
+      <p>Your dream look is just a message away.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        <a href="tel:+9779810277266" class="btn btn--gold btn--lg"><i class="fas fa-phone"></i> Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-name">Susmi</div>
+        <span class="footer__logo-sub">Nails &amp; Beauty Studio</span>
+        <p class="footer__blurb">Premium beauty treatments in Lalitpur, Nepal. Expert technicians, quality products, and a warm welcoming space.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/susmi_nails_and_beauty_studio/" target="_blank" rel="noopener" class="footer__social"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61574006287825" target="_blank" rel="noopener" class="footer__social"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@susminailandbeautystudio" target="_blank" rel="noopener" class="footer__social"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="footer__social"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Quick Links</div>
+        <ul class="footer__links">
+          <li><a href="index.html"    class="footer__link"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="services.html" class="footer__link"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="gallery.html"  class="footer__link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="about.html"    class="footer__link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="contact.html"  class="footer__link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <ul class="footer__links">
+          <li><a href="services.html#nail-extension" class="footer__link"><i class="fas fa-chevron-right"></i> Nail Extension</a></li>
+          <li><a href="services.html#lash-extension" class="footer__link"><i class="fas fa-chevron-right"></i> Lash Extension</a></li>
+          <li><a href="services.html#lash-lift"      class="footer__link"><i class="fas fa-chevron-right"></i> Lash Lift &amp; Tint</a></li>
+          <li><a href="services.html#manicure"       class="footer__link"><i class="fas fa-chevron-right"></i> Mani &amp; Pedi</a></li>
+          <li><a href="services.html#facial"         class="footer__link"><i class="fas fa-chevron-right"></i> Facial</a></li>
+          <li><a href="services.html#keratin"        class="footer__link"><i class="fas fa-chevron-right"></i> Hair Keratin</a></li>
+          <li><a href="services.html#henna"          class="footer__link"><i class="fas fa-chevron-right"></i> Henna Art</a></li>
+          <li><a href="services.html#lip-blush"      class="footer__link"><i class="fas fa-chevron-right"></i> Lip Blush</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Get in Touch</div>
+        <div class="footer__contact-row"><i class="fas fa-map-marker-alt"></i><span>Sukedhara, Harisiddhi, Lalitpur, Nepal</span></div>
+        <div class="footer__contact-row"><i class="fas fa-phone"></i><div><a href="tel:+9779810277266">+977 9810277266</a><br><a href="tel:+9779843462119">+977 9843462119</a></div></div>
+        <div class="footer__contact-row"><i class="fas fa-envelope"></i><a href="mailto:susmitashrestha20512053@gmail.com" style="word-break:break-all;">susmitashrestha20512053@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2025 Susmi Nails and Beauty Studio. All rights reserved.</span>
+      <span>Made with <i class="fas fa-heart" style="color:var(--gold-300);"></i> in Lalitpur, Nepal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+  <button class="lightbox__close" id="lightboxClose"><i class="fas fa-times"></i></button>
+  <img class="lightbox__img" id="lbImg" src="" alt="">
+  <div class="lightbox__label" id="lbLabel"></div>
+  <div class="lightbox__hint">← → arrow keys to navigate &nbsp;·&nbsp; ESC to close</div>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<a href="https://wa.me/9779810277266" target="_blank" rel="noopener" class="wa-float"><i class="fab fa-whatsapp"></i><span>Book Now</span></a>
+
+<script src="js/main.js"></script>
+<script>
+  /* ---- FILTER ---- */
+  const filterBtns = document.querySelectorAll('.gf-btn');
+  const allItems   = document.querySelectorAll('.g-full-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      allItems.forEach(item => {
+        const show = f === 'all' || item.dataset.category === f;
+        item.setAttribute('data-hidden', show ? '0' : '1');
+      });
+    });
+  });
+
+  /* ---- LIGHTBOX ---- */
+  const lb     = document.getElementById('lightbox');
+  const lbImg  = document.getElementById('lbImg');
+  const lbLbl  = document.getElementById('lbLabel');
+  const lbClose= document.getElementById('lightboxClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+  let visItems = [], cur = 0;
+
+  function getVisible(){ return [...allItems].filter(el => el.getAttribute('data-hidden') !== '1'); }
+
+  function openLb(idx){
+    visItems = getVisible();
+    cur = idx;
+    showItem();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showItem(){
+    const el = visItems[cur];
+    lbImg.src = el.dataset.src;
+    lbImg.alt = el.dataset.label;
+    lbLbl.textContent = el.dataset.label;
+  }
+
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+
+  allItems.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      visItems = getVisible();
+      const idx = visItems.indexOf(item);
+      if (idx !== -1) openLb(idx);
+    });
+  });
+
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); cur = (cur - 1 + visItems.length) % visItems.length; showItem(); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); cur = (cur + 1) % visItems.length; showItem(); });
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if(e.target===lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key==='Escape') closeLb();
+    if (e.key==='ArrowLeft')  { cur=(cur-1+visItems.length)%visItems.length; showItem(); }
+    if (e.key==='ArrowRight') { cur=(cur+1)%visItems.length; showItem(); }
+  });
+</script>
+</body>
+</html>
